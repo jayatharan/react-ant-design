@@ -19,3 +19,7 @@ export interface User extends BaseDbModel{
     mobileNumber:string;
     alternativeEmail:string;
 }
+
+export interface UserDetails {
+    user:User
+}

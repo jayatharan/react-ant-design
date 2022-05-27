@@ -7,7 +7,6 @@ import { refreshAccessToken } from './AuthService';
 export interface AuthState {
     loading:boolean;
     authenticated:boolean;
-    user?:User;
 }
 
 const useAuthState = () =>{
