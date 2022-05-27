@@ -1,18 +1,16 @@
-import React from 'react'
-import { Layout, Affix } from 'antd';
-import styled from 'styled-components';
+import React from "react";
+import { Layout, Affix } from "antd";
+import styled from "styled-components";
 
 const NavBar = styled(Layout.Header)`
-  color:white;
-`
+  color: white;
+`;
 const Header = () => {
   return (
     <Affix offsetTop={0}>
-      <NavBar>
-        UPHIRE
-      </NavBar>
+      <NavBar>UPHIRE</NavBar>
     </Affix>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

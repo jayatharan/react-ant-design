@@ -1,28 +1,27 @@
-import React from 'react'
-import Footer from './footer/Footer';
-import Header from './header/Header';
-import styled from 'styled-components';
-import { Layout } from 'antd'
+import React from "react";
+import Footer from "./footer/Footer";
+import Header from "./header/Header";
+import styled from "styled-components";
+import { Layout } from "antd";
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 interface DefaultLayoutProps {
-  children:any;
+  children: any;
 }
 
 const Body = styled(Content)`
-  min-height:90vh;
+  min-height: 90vh;
 `;
 
-const DefaultLayout = ({children}:DefaultLayoutProps) => {
-
+const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <Header />
       <Body>{children}</Body>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
