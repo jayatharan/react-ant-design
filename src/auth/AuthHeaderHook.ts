@@ -11,7 +11,7 @@ export interface AuthState {
 
 const useAuthState = () =>{
     const [authState, setAuthState] = useState<AuthState>({
-        loading:true,
+        loading:false,
         authenticated:false
     });
 
