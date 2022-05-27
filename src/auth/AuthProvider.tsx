@@ -25,7 +25,7 @@ const AuthProvider = ({children}:AuthProviderProps) => {
     const authState = useAuthState();
     const loadUserDetails = useLoadUserDetails();
     const [auth, setAuth] = useState<Auth>({
-        loading:true,
+        loading:false,
         authenticated:false
     });
 
