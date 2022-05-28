@@ -2,6 +2,7 @@ import './Header.css'
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { AuthContext } from "../../../../auth/AuthProvider";
+import LogoImg from '../../../assets/images/UpHire-Logo.png';
 
 import { Affix, Layout, Drawer } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
@@ -25,7 +26,7 @@ const Header = () => {
       <Nav className="navbar">
         <Navbar className='nav-header'>
           <Logo className='logo'>
-            <h2 className='brand-font'>UPHIRE</h2>
+            <img src={LogoImg} />
           </Logo>
           <NavMenu className='nav-menu'>
             <div className='leftMenu'>
