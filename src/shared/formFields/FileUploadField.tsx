@@ -1,25 +1,29 @@
 import React from 'react'
-import {Upload} from 'antd';
+import {Button, Upload} from 'antd';
 import { Text } from '../Typograpgy';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import type { UploadProps } from 'antd';
 
 interface FileUploadFieldProps {
     label?:string;
-    name?:string;
-    disabled?:boolean;
     style?: React.CSSProperties;
+    uploadProps?:UploadProps;
+    children?:any;
 }
 
-const FileUploadField = ({label, name, disabled, style}:FileUploadFieldProps) => {
+const FileUploadField = ({label, style, uploadProps, children}:FileUploadFieldProps) => {
   return (
     <div style={style}>
         <Text
-            style={{fontSize:'1.1rem'}} 
             strong={true} 
-            disabled={disabled}
         >
             {label?label:'File Upload'}
         </Text>
-        <Upload />
+        <div>
+            <Upload {...uploadProps}>
+                {children}
+            </Upload>
+        </div>
     </div>
   )
 }

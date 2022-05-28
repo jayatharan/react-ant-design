@@ -7,3 +7,5 @@ export const APP_ROUTES = {
     PROFILE:"profile",
     PROJECTS:"projects"
 };
+
+export const FILE_UPLOAD_ROUTE = `${process.env.REACT_APP_API_BASE_URL}/upload-file`

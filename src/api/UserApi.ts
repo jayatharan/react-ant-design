@@ -1,4 +1,4 @@
-import { CreateUser, User, UserDetails } from "../application/models/UserModels";
+import { CreateUser, UpdateUser, User, UserDetails } from "../application/models/UserModels";
 import BaseApi from "./BaseApi";
 
 class UserApi extends BaseApi {
@@ -9,6 +9,10 @@ class UserApi extends BaseApi {
 
     public async getUserDetails() {
         return await this.getAsync<UserDetails>("users",{});
+    }
+
+    public async updateUserAsync(data: UpdateUser) {
+        return await this.patchAsync<User>("users",{}, data);
     }
 }
 
