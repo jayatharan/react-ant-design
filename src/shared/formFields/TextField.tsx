@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import Textbox from '../Textbox';
-import {Text, Title} from '../Typograpgy';
+import {Text} from '../Typograpgy';
 
 interface TextFiledProps {
     label:string;
@@ -14,7 +14,6 @@ interface TextFiledProps {
 
 const TextField = ({label, name, disabled, size, type, style}:TextFiledProps) => {
     const [field, meta, helper] = useField(name);
-    const {setValue, setTouched} = helper;
 
     const isError = () => {
         if(meta.touched && meta.error) return true;
