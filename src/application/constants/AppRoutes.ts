@@ -1,4 +1,9 @@
 export const APP_ROUTES = {
+    HOME:"home",
     DASHBOARD: "dashboard",
-    LOGIN:"login"
+    LOGIN:"login",
+    SIGNUP:"signup",
+    ABOUT:"about",
+    PROFILE:"profile",
+    PROJECTS:"projects"
 };
