@@ -55,7 +55,7 @@ const LoginForm = () => {
                     {(formik) => (
                         <Form>
                             <Space direction="vertical" size="large" style={{ display: 'flex', marginInline:'10px' }}>
-                                <Title level={2}>Login</Title>
+                                <Title style={{marginBottom:'0px'}} level={2}>Login</Title>
                                 <TextField 
                                     name={email.name} 
                                     label={email.label} 

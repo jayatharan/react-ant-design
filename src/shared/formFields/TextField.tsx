@@ -29,7 +29,6 @@ const TextField = ({label, name, disabled, size, type, style}:TextFiledProps) =>
     return (
         <div style={style}>
             <Text 
-                style={{fontSize:'1.1rem'}} 
                 strong={true} 
                 disabled={disabled}
             >
@@ -51,7 +50,9 @@ const TextField = ({label, name, disabled, size, type, style}:TextFiledProps) =>
                 />
             )}
             {isError()&&(
-                <Text type="danger">{renderHelperText()}</Text>
+                <small>
+                    <Text type="danger">{renderHelperText()}</Text>
+                </small>
             )}
         </div>
         

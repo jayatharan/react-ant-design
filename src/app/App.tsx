@@ -10,6 +10,7 @@ import Dashboard from '../modules/dashboard/Dashboard';
 import Login from '../modules/login/Login';
 import Page404 from '../modules/errors/Page404';
 import Home from '../modules/home/Home';
+import Profile from '../modules/profile/Profile';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path={`/${APP_ROUTES.HOME}`} element={<Home />} />
           <Route path={`/${APP_ROUTES.DASHBOARD}`} element={<Dashboard />} />
           <Route path={`/${APP_ROUTES.LOGIN}`} element={<Login />} />
+          <Route path={`/${APP_ROUTES.PROFILE}`} element={<Profile />} />
           <Route path='*' element={<Page404 />} />
       </Routes>
     </DefaultLayout>
