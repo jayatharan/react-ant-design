@@ -1,9 +1,7 @@
 import React from 'react'
+import { Input } from 'antd';
+import styled from 'styled-components';
 
-const Textbox = () => {
-  return (
-    <div>Textbox</div>
-  )
-}
+const Textbox = styled(Input)``;
 
-export default Textbox
+export default Textbox;

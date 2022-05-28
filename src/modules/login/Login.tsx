@@ -9,6 +9,7 @@ import useLoadUserDetails from '../../auth/LoadUserDetailsHook';
 
 import Button from '../../shared/Button'
 import { Title } from '../../shared/Typograpgy';
+import LoginForm from './components/LoginForm';
 
 const Login = () => {
     const authContext = useContext(AuthContext);
@@ -43,7 +44,7 @@ const Login = () => {
                     <Button onClick={logout}>Logout</Button>
                 </>  
             ):(
-                <Button onClick={handleSubmit}>Login</Button>
+                <LoginForm />
             )}
         </div>
     )
