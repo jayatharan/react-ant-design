@@ -41,7 +41,7 @@ const LeftMenu = ({mode}:{mode:'vertical' | 'horizontal' | 'inline'}) => {
             title={
                 <>
                     <Avatar icon={<UserOutlined />} />
-                    <span className="username">John Doe</span>
+                    <span className="username">{authContext?.auth.userDetails?.user.name}</span>
                 </>
             }
         >
