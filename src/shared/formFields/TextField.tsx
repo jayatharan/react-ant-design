@@ -30,7 +30,7 @@ const TextField = ({label, name, disabled, size, type, style}:TextFiledProps) =>
     return (
         <div style={style}>
             <Text 
-                style={{fontSize:'1.1rem', paddingBottom:'5px'}} 
+                style={{fontSize:'1.1rem'}} 
                 strong={true} 
                 disabled={disabled}
             >
