@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { FILE_ROUTE } from '../../application/constants/AppRoutes';
 
 import {Row, Col, Space, Avatar, Spin} from 'antd';
 import { Text, Title } from '../../shared/Typograpgy';
@@ -40,7 +41,7 @@ const Profile = () => {
   }
 
   return (
-    <Row style={{maxWidth:'1200px', marginInline:'auto'}}>
+    <Row style={{maxWidth:'1400px', marginInline:'auto'}}>
       <Modal
         title={'Edit Profile'}
         closable={false}
@@ -58,7 +59,14 @@ const Profile = () => {
             </Title>
             <Space direction="vertical" size='middle'>
               <div style={{textAlign:'center'}}>
-                <Avatar size={80} icon={<UserOutlined />}/>
+                <Avatar 
+                  size={80} 
+                  icon={authContext?.auth.userDetails?.user.image?(
+                    <img src={`${process.env.REACT_APP_API_BASE_URL}/${authContext?.auth.userDetails?.user.image}`} />
+                  ):(
+                    <UserOutlined />
+                  )}
+                />
               </div>
               <ProfileContainer>
                   <ProfileLable>

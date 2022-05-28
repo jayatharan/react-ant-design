@@ -16,7 +16,7 @@ interface ImageUploadProps {
     disabled?: boolean;
 }
 
-const ImageUpload = ({ name, style, disabled, label }: ImageUploadProps) => {
+const ImageUploadField = ({ name, style, disabled, label }: ImageUploadProps) => {
     const [loading, setLoading] = useState(false);
     const [field, meta, helper] = useField(name);
 
@@ -96,4 +96,4 @@ const ImageUpload = ({ name, style, disabled, label }: ImageUploadProps) => {
     )
 }
 
-export default ImageUpload
+export default ImageUploadField

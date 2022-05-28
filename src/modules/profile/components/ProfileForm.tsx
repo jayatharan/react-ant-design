@@ -6,6 +6,7 @@ import profileFormInitialValue from './profileForm/profileFormInitialValue';
 import UserApi from '../../../api/UserApi';
 
 import TextField from '../../../shared/formFields/TextField';
+import ImageUploadField from '../../../shared/formFields/ImageUploadField';
 import Button from '../../../shared/Button';
 import { Title } from '../../../shared/Typograpgy';
 import { Space, Spin } from 'antd';
@@ -72,6 +73,10 @@ const ProfileForm = ({onSave, onClose}:ProfileFormPros) => {
                     profileFormModel.formField.role.name,
                     authContext.auth.userDetails.user.role??profileFormModel.formField.role.initialValue
                 )
+                formikRef.current.setFieldValue(
+                    profileFormModel.formField.image.name,
+                    authContext.auth.userDetails.user.image??profileFormModel.formField.image.initialValue
+                )
             }
         }
     }, [authContext])
@@ -89,6 +94,10 @@ const ProfileForm = ({onSave, onClose}:ProfileFormPros) => {
                     {(formik) => (
                         <Form>
                             <Space direction="vertical" size="middle" style={{ display: 'flex', marginInline: '10px' }}>
+                                <ImageUploadField 
+                                    name={image.name}
+                                    label={image.label}
+                                />
                                 <TextField
                                     name={name.name}
                                     label={name.label}
