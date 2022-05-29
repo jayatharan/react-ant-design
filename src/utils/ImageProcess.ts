@@ -1,4 +1,7 @@
-export function getImagePath(name:string){
-    if(name.includes('http')) return name;
-    else `${process.env.REACT_APP_API_BASE_URL}/${name}`
+export function getImagePath(name?:string){
+    if(name){
+        if(name.includes('http')) return name;
+        else return `${process.env.REACT_APP_API_BASE_URL}/${name}`
+    }
+    return ''
 }
