@@ -2,17 +2,19 @@ import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { FILE_ROUTE } from '../../application/constants/AppRoutes';
 
-import {Row, Col, Space, Avatar, Spin} from 'antd';
+import { Row, Col, Space, Avatar, Spin, Tabs } from 'antd';
 import { Text, Title } from '../../shared/Typograpgy';
-import { UserOutlined, EditOutlined } from '@ant-design/icons';
+import { UserOutlined, EditOutlined, ProjectOutlined, FileProtectOutlined, BookOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../auth/AuthProvider';
 import useLoadUserDetails from '../../auth/LoadUserDetailsHook';
 import Modal from '../../shared/Modal';
 import ProfileForm from './components/ProfileForm';
 import { User } from '../../application/models/UserModels';
 
+const { TabPane } = Tabs;
+
 const ProfileLable = styled(Text).attrs({
-  strong:true
+  strong: true
 })`
   font-size:1.1rem;
   text-align: center;
@@ -31,17 +33,17 @@ const Profile = () => {
   const [openEditProfile, setOpenEditProfile] = useState(false);
 
 
-  const handleProfileSave = (user:User) => {
+  const handleProfileSave = (user: User) => {
     loadUserDetails();
     setOpenEditProfile(false);
   }
 
-  const handleProfileClose =  () => {
+  const handleProfileClose = () => {
     setOpenEditProfile(false);
   }
 
   return (
-    <Row style={{maxWidth:'1400px', marginInline:'auto'}}>
+    <Row style={{ maxWidth: '1400px', marginInline: 'auto' }}>
       <Modal
         title={'Edit Profile'}
         closable={false}
@@ -53,28 +55,28 @@ const Profile = () => {
       </Modal>
       <Col xs={24} sm={24} md={8} lg={8} xl={8}>
         <Spin spinning={authContext?.auth.loading}>
-          <div style={{width:'100%', display:'flex', alignItems:'center', flexDirection:'column'}}>
-            <Title level={3} style={{marginBottom:'20px'}}>
-              PROFILE <EditOutlined onClick={()=>setOpenEditProfile(true)} />
+          <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+            <Title level={3} style={{ marginBottom: '20px' }}>
+              PROFILE <EditOutlined onClick={() => setOpenEditProfile(true)} />
             </Title>
             <Space direction="vertical" size='middle'>
-              <div style={{textAlign:'center'}}>
-                <Avatar 
-                  size={80} 
-                  icon={authContext?.auth.userDetails?.user.image?(
+              <div style={{ textAlign: 'center' }}>
+                <Avatar
+                  size={100}
+                  icon={authContext?.auth.userDetails?.user.image ? (
                     <img src={`${process.env.REACT_APP_API_BASE_URL}/${authContext?.auth.userDetails?.user.image}`} />
-                  ):(
+                  ) : (
                     <UserOutlined />
                   )}
                 />
               </div>
               <ProfileContainer>
-                  <ProfileLable>
-                    Username
-                  </ProfileLable>
-                  <ProfileValue>
-                    {authContext?.auth.userDetails?.user.name}
-                  </ProfileValue>
+                <ProfileLable>
+                  Username
+                </ProfileLable>
+                <ProfileValue>
+                  {authContext?.auth.userDetails?.user.name}
+                </ProfileValue>
               </ProfileContainer>
               <ProfileContainer>
                 <ProfileLable>
@@ -102,10 +104,55 @@ const Profile = () => {
               </ProfileContainer>
             </Space>
           </div>
-        </Spin>       
+        </Spin>
       </Col>
       <Col xs={24} sm={24} md={16} lg={16} xl={16}>
-        Form
+        <Tabs>
+          <TabPane
+            tab={
+              <span>
+                <UserOutlined />
+                Biography
+              </span>
+            }
+            key="1"
+          >
+            Tab 1
+          </TabPane>
+          <TabPane
+            tab={
+              <span>
+                <ProjectOutlined />
+                Projects
+              </span>
+            }
+            key="2"
+          >
+            Tab 2
+          </TabPane>
+          <TabPane
+            tab={
+              <span>
+                <BookOutlined />
+                Education
+              </span>
+            }
+            key="3"
+          >
+            Tab 2
+          </TabPane>
+          <TabPane
+            tab={
+              <span>
+                <FileProtectOutlined />
+                Professional
+              </span>
+            }
+            key="4"
+          >
+            Tab 2
+          </TabPane>
+        </Tabs>
       </Col>
     </Row>
   )

@@ -20,7 +20,7 @@ const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
 
     if(authContext && !authContext.auth.loading) return <Page401 />;
 
-    return <></>
+    return children
 }
 
 export default ProtectedRoute
