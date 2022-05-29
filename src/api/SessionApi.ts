@@ -1,5 +1,6 @@
 import {
     CreateSession,
+    CreateSessionGoogle,
     RefreshToken,
     SessionResponse,
     TokenResponse
@@ -10,12 +11,17 @@ class SessionApi extends BaseApi {
     public async createSessionAsync(data: CreateSession) {
         return await this.postAsync<SessionResponse>("sessions", {}, data);
     }
+    
+    public async createSessionWithGoogle(data : CreateSessionGoogle) {
+        return await this.postAsync<SessionResponse>("sessions/google", {}, data);
+    } 
 
     public async refreshToken(refresh_token: string) {
         return await this.postAsync<TokenResponse>("sessions/token", {}, {
             refreshToken: refresh_token,
         } as RefreshToken);
     }
+
 }
 
 const instance = new SessionApi();

@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import { APP_ROUTES } from '../../../../../application/constants/AppRoutes';
 import useLogout from '../../../../../auth/LogoutHook';
+import { getImagePath } from '../../../../../utils/ImageProcess';
 
 import { Menu, Avatar } from "antd";
 import { UserOutlined, CodeOutlined, LogoutOutlined } from "@ant-design/icons";
@@ -40,8 +41,8 @@ const LeftMenu = ({mode}:{mode:'vertical' | 'horizontal' | 'inline'}) => {
             key={'user'}
             title={
                 <>
-                    <Avatar icon={<UserOutlined />} />
-                    <span className="username">{authContext?.auth.userDetails?.user.name}</span>
+                    <Avatar icon={authContext?.auth.userDetails?.user?.name?(<img src={`${getImagePath(authContext?.auth.userDetails?.user?.image)}`} />):(<UserOutlined />)} />
+                    <span className="username">{authContext?.auth.userDetails?.user?.name}</span>
                 </>
             }
         >

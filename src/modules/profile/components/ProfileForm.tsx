@@ -55,27 +55,27 @@ const ProfileForm = ({onSave, onClose}:ProfileFormPros) => {
             if(formikRef.current){
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.email.name,
-                    authContext.auth.userDetails.user.email??profileFormModel.formField.email.initialValue
+                    authContext.auth.userDetails.user?.email??profileFormModel.formField.email.initialValue
                 )
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.name.name,
-                    authContext.auth.userDetails.user.name??profileFormModel.formField.name.initialValue
+                    authContext.auth.userDetails.user?.name??profileFormModel.formField.name.initialValue
                 )
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.mobileNumber.name,
-                    authContext.auth.userDetails.user.mobileNumber??profileFormModel.formField.mobileNumber.initialValue
+                    authContext.auth.userDetails.user?.mobileNumber??profileFormModel.formField.mobileNumber.initialValue
                 )
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.alternativeEmail.name,
-                    authContext.auth.userDetails.user.alternativeEmail??profileFormModel.formField.alternativeEmail.initialValue
+                    authContext.auth.userDetails.user?.alternativeEmail??profileFormModel.formField.alternativeEmail.initialValue
                 )
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.role.name,
-                    authContext.auth.userDetails.user.role??profileFormModel.formField.role.initialValue
+                    authContext.auth.userDetails.user?.role??profileFormModel.formField.role.initialValue
                 )
                 formikRef.current.setFieldValue(
                     profileFormModel.formField.image.name,
-                    authContext.auth.userDetails.user.image??profileFormModel.formField.image.initialValue
+                    authContext.auth.userDetails.user?.image??profileFormModel.formField.image.initialValue
                 )
             }
         }

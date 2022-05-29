@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import  { Formik, Form, FormikValues, FormikHelpers } from 'formik';
-import { CreateSession } from '../../../application/models/SessionModels';
+import { CreateSession, SessionResponse } from '../../../application/models/SessionModels';
 import loginFormModel from ".//loginForm/loginFormModel";
 import loginFormvalidationSchema from "./loginForm/loginFormValidation";
 import loginFormInitialValue from "./loginForm/loginFormInitialValue";
@@ -11,6 +11,7 @@ import { APP_ROUTES } from '../../../application/constants/AppRoutes';
 import { setCookie } from '../../../utils/CookieAccess';
 import { setAuthHeader } from '../../../api/AxiosInstance';
 
+import GoogleLogin from 'react-google-login';
 import TextField from '../../../shared/formFields/TextField';
 import Button from '../../../shared/Button';
 import { Title } from '../../../shared/Typograpgy';
@@ -19,6 +20,8 @@ import { Space, Spin } from 'antd';
 const {
     formField: { email, password },
 } = loginFormModel;
+
+const google_client_id = process.env.REACT_APP_CLIENT_ID
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -33,15 +36,28 @@ const LoginForm = () => {
         setLoading(true);
         try{
             const sessionResponse = await SessionApi.createSessionAsync(data);
-            setCookie('access-token', sessionResponse.accessToken, 1);
-            setCookie('refresh-token', sessionResponse.refreshToken, 90);
-            setAuthHeader(sessionResponse.accessToken);
-            loadUserDetails();
-            navigate(`/${APP_ROUTES.DASHBOARD}`)
+            handleLogin(sessionResponse);
         }catch(error){
             console.log(error);
         }
         setLoading(false);
+    }
+
+    const handleLogin = (sessionResponse:SessionResponse) => {
+        setCookie('access-token', sessionResponse.accessToken, 1);
+        setCookie('refresh-token', sessionResponse.refreshToken, 90);
+        setAuthHeader(sessionResponse.accessToken);
+        loadUserDetails();
+        navigate(`/${APP_ROUTES.DASHBOARD}`)
+    }   
+
+    const responseGoogle = async (response:any) => {
+        if(response.tokenId){
+            const sessionResponse = await SessionApi.createSessionWithGoogle({
+                tokenId:response.tokenId
+            })
+            handleLogin(sessionResponse);
+        }
     }
 
     return (
@@ -77,6 +93,16 @@ const LoginForm = () => {
                                 >
                                     Login
                                 </Button>
+                                {google_client_id&&(
+                                    <GoogleLogin
+                                        clientId={google_client_id as string}
+                                        buttonText="Continue with Google"
+                                        onSuccess={responseGoogle}
+                                        onFailure={responseGoogle}
+                                        cookiePolicy={'single_host_origin'}
+                                        
+                                    />
+                                )}
                             </Space>
                         </Form>
                     )}

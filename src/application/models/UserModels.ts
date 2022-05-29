@@ -32,5 +32,5 @@ export interface UpdateUser {
 }
 
 export interface UserDetails {
-    user:User
+    user?:User
 }

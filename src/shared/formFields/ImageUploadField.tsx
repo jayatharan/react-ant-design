@@ -3,6 +3,7 @@ import { Text } from '../Typograpgy';
 import { useField } from 'formik';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import type { UploadChangeParam } from 'antd/es/upload';
+import { getImagePath } from '../../utils/ImageProcess';
 
 import { Upload } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -80,7 +81,7 @@ const ImageUploadField = ({ name, style, disabled, label }: ImageUploadProps) =>
                 beforeUpload={beforeUpload}
                 onChange={handleChange}
             >
-                {field.value ? <img src={`${process.env.REACT_APP_API_BASE_URL}/${field.value}`} alt="avatar" style={{ width: '100%' }} /> : (
+                {field.value ? <img src={`${getImagePath(field.value)}`} alt="avatar" style={{ width: '100%' }} /> : (
                     <div>
                         {loading ? <LoadingOutlined /> : <PlusOutlined />}
                         <div style={{ marginTop: 8 }}>Upload</div>

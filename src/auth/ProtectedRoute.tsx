@@ -14,7 +14,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
     const authContext = useContext(AuthContext);
 
-    if(roles && roles.includes(authContext?.auth.userDetails?.user.role??'none')) return children
+    if(roles && roles.includes(authContext?.auth.userDetails?.user?.role??'none')) return children
 
     if(authContext?.auth.authenticated) return children
 

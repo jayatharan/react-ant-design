@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { FILE_ROUTE } from '../../application/constants/AppRoutes';
+import { getImagePath } from '../../utils/ImageProcess';
 
 import { Row, Col, Space, Avatar, Spin, Tabs } from 'antd';
 import { Text, Title } from '../../shared/Typograpgy';
@@ -63,8 +64,8 @@ const Profile = () => {
               <div style={{ textAlign: 'center' }}>
                 <Avatar
                   size={100}
-                  icon={authContext?.auth.userDetails?.user.image ? (
-                    <img src={`${process.env.REACT_APP_API_BASE_URL}/${authContext?.auth.userDetails?.user.image}`} />
+                  icon={authContext?.auth.userDetails?.user?.image ? (
+                    <img src={`${getImagePath(authContext?.auth.userDetails?.user?.image)}`} />
                   ) : (
                     <UserOutlined />
                   )}
@@ -75,7 +76,7 @@ const Profile = () => {
                   Username
                 </ProfileLable>
                 <ProfileValue>
-                  {authContext?.auth.userDetails?.user.name}
+                  {authContext?.auth.userDetails?.user?.name}
                 </ProfileValue>
               </ProfileContainer>
               <ProfileContainer>
@@ -83,7 +84,7 @@ const Profile = () => {
                   Email
                 </ProfileLable>
                 <ProfileValue>
-                  {authContext?.auth.userDetails?.user.email}
+                  {authContext?.auth.userDetails?.user?.email}
                 </ProfileValue>
               </ProfileContainer>
               <ProfileContainer>
@@ -91,7 +92,7 @@ const Profile = () => {
                   Mobile No
                 </ProfileLable>
                 <ProfileValue>
-                  {authContext?.auth.userDetails?.user.mobileNumber}
+                  {authContext?.auth.userDetails?.user?.mobileNumber}
                 </ProfileValue>
               </ProfileContainer>
               <ProfileContainer>
@@ -99,7 +100,7 @@ const Profile = () => {
                   Alternative Email
                 </ProfileLable>
                 <ProfileValue>
-                  {authContext?.auth.userDetails?.user.alternativeEmail}
+                  {authContext?.auth.userDetails?.user?.alternativeEmail}
                 </ProfileValue>
               </ProfileContainer>
             </Space>

@@ -15,3 +15,7 @@ export interface RefreshToken {
 export interface TokenResponse {
     accessToken: string;
 }
+
+export interface CreateSessionGoogle {
+    tokenId: string;
+}
