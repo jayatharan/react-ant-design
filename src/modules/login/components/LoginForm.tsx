@@ -16,6 +16,7 @@ import TextField from '../../../shared/formFields/TextField';
 import Button from '../../../shared/Button';
 import { Title } from '../../../shared/Typograpgy';
 import { Space, Spin } from 'antd';
+import {GoogleOutlined} from '@ant-design/icons';
 
 const {
     formField: { email, password },
@@ -100,7 +101,16 @@ const LoginForm = () => {
                                         onSuccess={responseGoogle}
                                         onFailure={responseGoogle}
                                         cookiePolicy={'single_host_origin'}
-                                        
+                                        render={renderProps => (
+                                            <Button 
+                                                icon={<GoogleOutlined />}
+                                                shape='round'
+                                                size='large'
+                                                style={{width:'100%'}}
+                                                onClick={renderProps.onClick}
+                                                disabled={renderProps.disabled}
+                                            >Continue with Google</Button>
+                                        )}
                                     />
                                 )}
                             </Space>
