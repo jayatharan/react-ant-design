@@ -14,8 +14,6 @@ const Body = styled(Content)`
   min-height: 90vh;
 `;
 
-// Hello
-
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
