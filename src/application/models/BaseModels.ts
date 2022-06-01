@@ -1,5 +1,7 @@
+import { User } from "./UserModels";
+
 export interface BaseDbModel {
-    _id: string;
+    id: string;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -14,3 +16,22 @@ export interface FileResponse {
     path:string;
     size:number;
 }
+
+export interface Address extends BaseDbModel{
+    userId?:string;
+    user?:User |null;
+    address?:string;
+    city?:string;
+    country?:string;
+    postCode?:string;
+}
+
+export interface Company extends BaseDbModel{
+    userId?: string;
+    user?:User |null;
+    name: string;
+    description?: string;
+    addressId?:string;
+    address?:Address | null;
+}
+

@@ -1,4 +1,5 @@
 import { BaseDbModel } from "./BaseModels";
+import { Biography } from "./BiographyModels";
 
 export interface CreateUser {
   name?: string;
@@ -33,4 +34,5 @@ export interface UpdateUser {
 
 export interface UserDetails {
   user?: User;
+  biography?:Biography | null;
 }
