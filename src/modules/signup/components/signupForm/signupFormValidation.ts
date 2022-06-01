@@ -20,10 +20,8 @@ const signupFormValidationSchema = yup.object().shape({
     .string()
     .email("Must Valid Email")
     .required(email.requiredErrorMsg),
-  [alternativeEmail.name]: yup
-    .string()
-    .email("Must Valid Email")
-    .required(alternativeEmail.requiredErrorMsg),
+  [alternativeEmail.name]: yup.string().email("Must Valid Email"),
+
   [password.name]: yup
     .string()
     .required(password.requiredErrorMsg)
@@ -35,7 +33,7 @@ const signupFormValidationSchema = yup.object().shape({
     .test("password-match", "Password musth match", function (value) {
       return this.parent.password === value;
     }),
-  [mobileNumber.name]: yup.string().required(mobileNumber.requiredErrorMsg),
+  [mobileNumber.name]: yup.string(),
   // [image.name]: yup.string().required(image.requiredErrorMsg),
   [role.name]: yup.string().required(role.requiredErrorMsg),
 });

@@ -47,7 +47,7 @@ const signupFormModel = {
     role: {
       name: "role",
       label: "Role",
-      initialValue: "",
+      initialValue: "general",
       requiredErrorMsg: "Role is required",
     },
   },
