@@ -3,10 +3,12 @@ import React, { useContext } from 'react';
 import { Row, Col, Space, Avatar, Spin, Tabs } from 'antd';
 import { UserOutlined, ProjectOutlined, FileProtectOutlined, BookOutlined } from '@ant-design/icons';
 import ProfileSection from './components/ProfileSection';
+import { AuthContext } from '../../auth/AuthProvider';
 
 const { TabPane } = Tabs;
 
 const Profile = () => {
+  const authContext = useContext(AuthContext);
 
   return (
     <Row style={{ maxWidth: '1400px', marginInline: 'auto' }}>
@@ -24,7 +26,7 @@ const Profile = () => {
             }
             key="1"
           >
-            Tab 1
+            FirstName: {authContext?.auth.userDetails?.biography?.firstName}
           </TabPane>
           <TabPane
             tab={
