@@ -5,6 +5,7 @@ import { UserOutlined, ProjectOutlined, FileProtectOutlined, BookOutlined } from
 import ProfileSection from './components/ProfileSection';
 import { AuthContext } from '../../auth/AuthProvider';
 import BioGraphyForm from './components/BioGraphyForm';
+import BiographySection from './components/BiographySection';
 
 const { TabPane } = Tabs;
 
@@ -27,7 +28,8 @@ const Profile = () => {
             }
             key="1"
           >
-            <BioGraphyForm />
+            {/* <BioGraphyForm /> */}
+            <BiographySection />
             FirstName: {authContext?.auth.userDetails?.biography?.firstName}
           </TabPane>
           <TabPane
