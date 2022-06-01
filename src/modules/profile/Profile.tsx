@@ -11,6 +11,7 @@ import useLoadUserDetails from '../../auth/LoadUserDetailsHook';
 import Modal from '../../shared/Modal';
 import ProfileForm from './components/ProfileForm';
 import { User } from '../../application/models/UserModels';
+import BioGraphyForm from './components/biographyForm/BioGraphyForm';
 
 const { TabPane } = Tabs;
 
@@ -108,7 +109,7 @@ const Profile = () => {
         </Spin>
       </Col>
       <Col xs={24} sm={24} md={16} lg={16} xl={16}>
-        <Tabs>
+        <Tabs >
           <TabPane
             tab={
               <span>
@@ -118,7 +119,7 @@ const Profile = () => {
             }
             key="1"
           >
-            Tab 1
+             <BioGraphyForm/>
           </TabPane>
           <TabPane
             tab={
