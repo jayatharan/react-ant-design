@@ -11,7 +11,7 @@ import useLoadUserDetails from '../../auth/LoadUserDetailsHook';
 
 
 import { User } from '../../application/models/UserModels';
-import BioGraphyForm from './components/biographyForm/BioGraphyForm';
+import BioGraphyForm from './components/BioGraphyForm';
 import Modal from 'antd/lib/modal/Modal';
 import ProfileForm from './components/ProfileForm';
 
