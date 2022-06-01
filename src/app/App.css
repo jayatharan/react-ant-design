@@ -1,1 +1,11 @@
 @import '~antd/dist/antd.css';
+
+.company-details{
+    margin-top : 1rem;
+}
+
+@media (max-width : 991px){
+    .profile-tab-container{
+        margin: 20px;
+    }
+}

@@ -8,10 +8,12 @@ import { Text, Title } from '../../shared/Typograpgy';
 import { UserOutlined, EditOutlined, ProjectOutlined, FileProtectOutlined, BookOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../auth/AuthProvider';
 import useLoadUserDetails from '../../auth/LoadUserDetailsHook';
-import Modal from '../../shared/Modal';
-import ProfileForm from './components/ProfileForm';
+
+
 import { User } from '../../application/models/UserModels';
 import BioGraphyForm from './components/biographyForm/BioGraphyForm';
+import Modal from 'antd/lib/modal/Modal';
+import ProfileForm from './components/ProfileForm';
 
 const { TabPane } = Tabs;
 
@@ -33,8 +35,6 @@ const Profile = () => {
   const authContext = useContext(AuthContext);
   const loadUserDetails = useLoadUserDetails();
   const [openEditProfile, setOpenEditProfile] = useState(false);
-
-
   const handleProfileSave = (user: User) => {
     loadUserDetails();
     setOpenEditProfile(false);
@@ -109,7 +109,7 @@ const Profile = () => {
         </Spin>
       </Col>
       <Col xs={24} sm={24} md={16} lg={16} xl={16}>
-        <Tabs >
+        <Tabs className="profile-tab-container">
           <TabPane
             tab={
               <span>
@@ -119,7 +119,7 @@ const Profile = () => {
             }
             key="1"
           >
-             <BioGraphyForm/>
+            <BioGraphyForm />
           </TabPane>
           <TabPane
             tab={
