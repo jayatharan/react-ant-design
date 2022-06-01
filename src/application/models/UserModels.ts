@@ -1,4 +1,5 @@
 import { BaseDbModel } from "./BaseModels";
+<<<<<<< HEAD
 import { UserAddress } from "./UserAddress";
 import UserCompany from "./UserCompany";
 
@@ -49,3 +50,42 @@ export interface BiographyUserModel {
 }
 
 
+=======
+import { Biography } from "./BiographyModels";
+
+export interface CreateUser {
+  name?: string;
+  email?: string;
+  password?: string;
+  passwordConfirmation?: string;
+  role?: string;
+  mobileNumber?: string;
+  alternativeEmail?: string;
+}
+
+export interface User extends BaseDbModel {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+  role: string;
+  mobileNumber: string;
+  alternativeEmail: string;
+  image: string;
+}
+
+export interface UpdateUser {
+  name?: string;
+  email?: string;
+  password?: string;
+  role?: string;
+  mobileNumber?: string;
+  alternativeEmail?: string;
+  image?: string;
+}
+
+export interface UserDetails {
+  user?: User;
+  biography?:Biography | null;
+}
+>>>>>>> development
