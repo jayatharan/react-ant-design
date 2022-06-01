@@ -20,6 +20,8 @@ import Button from "../../../shared/Button";
 import { Title } from "../../../shared/Typograpgy";
 import { Space, Spin } from "antd";
 import { GoogleOutlined } from "@ant-design/icons";
+import AddressField from "../../../shared/formFields/AddressField";
+import CompanyField from "../../../shared/formFields/CompanyField";
 
 const {
   formField: { email, password },
@@ -96,6 +98,16 @@ const LoginForm = () => {
                   size="large"
                   type="password"
                 />
+                {/* <AddressField
+                  name={'address'}
+                  label={'Address Details'}
+                  size="large"
+                />
+                <CompanyField
+                  name={'company'}
+                  label={'Company Details'}
+                  size="large"
+                /> */}
                 <Button
                   type="primary"
                   shape="round"
