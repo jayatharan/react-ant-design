@@ -3,7 +3,7 @@ import { Col, Row, Carousel } from 'antd'
 
 import styled from 'styled-components'
 
-const Section = styled.section`
+const Section = styled.div`
 
 `
 
@@ -21,10 +21,7 @@ const TitleWrapper = styled.div`
 `
 
 const Container = styled.div`
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+   
 `
 
 const ImageWrapper = styled.div`
@@ -47,8 +44,7 @@ const SearchBox = styled.div`
 
 const Main = () => {
     return (
-        <Section>
-
+        <Section className="container"> 
             <Row className="row">
                 <Col span={12}>
                     <Container>
