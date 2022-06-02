@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import Main from './components/Main'
 
 const HomeContainer = styled.div`
-  min-height:90vh;
-  background-color:#25373e;
+  
 `
 
 const Home = () => {
   return (
     <HomeContainer>
-
+        <Main/>
     </HomeContainer>
   )
 }

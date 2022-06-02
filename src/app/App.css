@@ -1,11 +1,40 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
-.company-details{
-    margin-top : 1rem;
+
+
+*{
+    font-family: 'Inter', sans-serif;
 }
 
-@media (max-width : 991px){
-    .profile-tab-container{
+.company-details {
+    margin-top: 1rem;
+}
+
+.row {
+    max-width: 1400px;
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: 3.75rem;
+    line-height: 1.2;
+    letter-spacing: -.9px;
+    font-weight: 700;
+}
+
+h4{
+    font-weight: 400;
+    color: #6b6e6f;
+    font-size: 1.3125rem;
+    line-height: 1.62;
+    letter-spacing: -.21px;
+}
+
+@media (max-width : 991px) {
+    .profile-tab-container {
         margin: 20px;
     }
 }
