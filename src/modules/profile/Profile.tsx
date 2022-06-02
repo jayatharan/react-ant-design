@@ -28,8 +28,8 @@ const Profile = () => {
             }
             key="1"
           >
-            {/* <BioGraphyForm /> */}
-            <BiographySection />
+            <BioGraphyForm />
+            {/* <BiographySection /> */}
             FirstName: {authContext?.auth.userDetails?.biography?.firstName}
           </TabPane>
           <TabPane
