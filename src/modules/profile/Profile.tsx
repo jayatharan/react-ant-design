@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import { Row, Col, Space, Avatar, Spin, Tabs } from 'antd';
-import { UserOutlined, ProjectOutlined, FileProtectOutlined, BookOutlined } from '@ant-design/icons';
-import ProfileSection from './components/ProfileSection';
-import { AuthContext } from '../../auth/AuthProvider';
+import { Row, Col, Space, Avatar, Spin, Tabs } from "antd";
+import {
+  UserOutlined,
+  ProjectOutlined,
+  FileProtectOutlined,
+  BookOutlined,
+} from "@ant-design/icons";
+import ProfileSection from "./components/ProfileSection";
+import { AuthContext } from "../../auth/AuthProvider";
+import EducationForm from "./components/EducationForm";
 
 const { TabPane } = Tabs;
 
@@ -11,7 +17,7 @@ const Profile = () => {
   const authContext = useContext(AuthContext);
 
   return (
-    <Row style={{ maxWidth: '1400px', marginInline: 'auto' }}>
+    <Row style={{ maxWidth: "1400px", marginInline: "auto" }}>
       <Col xs={24} sm={24} md={8} lg={8} xl={8}>
         <ProfileSection />
       </Col>
@@ -48,7 +54,7 @@ const Profile = () => {
             }
             key="3"
           >
-            Tab 2
+            <EducationForm />
           </TabPane>
           <TabPane
             tab={
@@ -64,7 +70,7 @@ const Profile = () => {
         </Tabs>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
