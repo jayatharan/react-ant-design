@@ -7,7 +7,7 @@ import { Tabs, Form, Input } from 'antd';
 const BioGraphyForm = () => {
    const authContext = useContext(AuthContext);
 
-   const userBigrapghy = authContext?.auth.userDetails?.biography;
+  
    const [isModalVisible, setIsModalVisible] = useState(false);
 
    const showModal = () => {
@@ -49,7 +49,7 @@ const BioGraphyForm = () => {
                         label="First Name"
                         name="first-name"
                         rules={[{ message: 'Please input your first name!' }]}
-                        initialValue= {userBigrapghy?.firstName ? userBigrapghy?.firstName : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.firstName ? authContext?.auth.userDetails?.biography?.firstName : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -57,7 +57,7 @@ const BioGraphyForm = () => {
                         label="Last Name"
                         name="last-name"
                         rules={[{ message: 'Please input your last name!' }]}
-                        initialValue= {userBigrapghy?.lastName ? userBigrapghy?.lastName : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.lastName ? authContext?.auth.userDetails?.biography?.lastName : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -65,7 +65,7 @@ const BioGraphyForm = () => {
                         label="Job Role"
                         name="job-role"
                         rules={[{ message: 'Please input your job role!' }]}
-                        initialValue= {userBigrapghy?.jobRole ? userBigrapghy?.jobRole : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.jobRole ? authContext?.auth.userDetails?.biography?.jobRole : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -73,7 +73,7 @@ const BioGraphyForm = () => {
                         label="Address"
                         name="address"
                         rules={[{ message: 'Please input your address!' }]}
-                        initialValue= {userBigrapghy?.address ? userBigrapghy?.address.address : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.address ? authContext?.auth.userDetails?.biography?.address.address : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -81,7 +81,7 @@ const BioGraphyForm = () => {
                         label="City"
                         name="city"
                         rules={[{ message: 'Please Enter your city' }]}
-                        initialValue= {userBigrapghy?.address ? userBigrapghy?.address.city : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.address ? authContext?.auth.userDetails?.biography?.address.city : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -89,7 +89,7 @@ const BioGraphyForm = () => {
                         label="Country"
                         name="country"
                         rules={[{ message: 'Please input your country' }]}
-                        initialValue= {userBigrapghy?.address ? userBigrapghy?.address.city : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.address ? authContext?.auth.userDetails?.biography?.address.city : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -97,7 +97,7 @@ const BioGraphyForm = () => {
                         label="Post Code"
                         name="post-code"
                         rules={[{ message: 'Please input your  post code!' }]}
-                        initialValue= {userBigrapghy?.postCode ? userBigrapghy?.postCode : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.postCode ? authContext?.auth.userDetails?.biography?.postCode : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -107,7 +107,7 @@ const BioGraphyForm = () => {
                         label="Name"
                         name="company-name"
                         rules={[{ message: 'Please input your company name!' }]}
-                        initialValue= {userBigrapghy?.company ? userBigrapghy?.company.name : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.company ? authContext?.auth.userDetails?.biography?.company.name : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -115,7 +115,7 @@ const BioGraphyForm = () => {
                         label="Description"
                         name="description"
                         rules={[{ message: 'Please input your first name!' }]}
-                        initialValue= {userBigrapghy?.company ? userBigrapghy?.company.description : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.company ? authContext?.auth.userDetails?.biography?.company.description : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -123,7 +123,7 @@ const BioGraphyForm = () => {
                         label="Address"
                         name="address"
                         rules={[{ message: 'Please input your first name!' }]}
-                        initialValue= {userBigrapghy?.company ? userBigrapghy?.company.address?.address : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.company ? authContext?.auth.userDetails?.biography?.company.address?.address : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -131,7 +131,7 @@ const BioGraphyForm = () => {
                         label="City"
                         name="city"
                         rules={[{ message: 'Please input your first name!' }]}
-                        initialValue= {userBigrapghy?.company ? userBigrapghy?.company.address?.city : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.company ? authContext?.auth.userDetails?.biography?.company.address?.city : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -139,7 +139,7 @@ const BioGraphyForm = () => {
                         label="Country"
                         name="country"
                         rules={[{ message: 'Please input your company s country!' }]}
-                        initialValue= {userBigrapghy?.company ? userBigrapghy?.company.address?.country : ""}
+                        initialValue= {authContext?.auth.userDetails?.biography?.company ? authContext?.auth.userDetails?.biography?.company.address?.country : ""}
                      >
                         <Input />
                      </Form.Item>
@@ -153,31 +153,38 @@ const BioGraphyForm = () => {
             </Form>
          </Modal>
          {
-            userBigrapghy && <>
+            authContext?.auth.userDetails?.biography && <>
                <h2>Personal Details</h2>
-               <div className="data-row">
-                  <h3>First Name :  <span></span>{userBigrapghy.firstName}</h3>
+               <div >
+                  <h3>First Name </h3>
+                  <p>{authContext?.auth.userDetails?.biography.firstName}</p>
                </div>
-               <div className="data-row">
-                  <h3>Last Name :  <span>{userBigrapghy.lastName}</span></h3>
+               <div >
+                  <h3>Last Name</h3>
+                  <p>{authContext?.auth.userDetails?.biography.lastName}</p>
                </div>
-               <div className="data-row">
-                  <h3> Address :  {userBigrapghy.address ? `${userBigrapghy.address?.address},${userBigrapghy.address?.city},${userBigrapghy.address?.country}` : "Not Available"}</h3>
+               <div >
+                  <h3> Address</h3>
+                  <p> {authContext?.auth.userDetails?.biography.address ? `${authContext?.auth.userDetails?.biography.address?.address},${authContext?.auth.userDetails?.biography.address?.city},${authContext?.auth.userDetails?.biography.address?.country}` : "Not Available"}</p>
                </div>
-               <div className="data-row">
-                  <h3> Postal Code :  {userBigrapghy.address?.postCode ? userBigrapghy.postCode : "Not Available"}</h3>
+               <div >
+                  <h3> Postal Code   </h3>
+                  <p>{authContext?.auth.userDetails?.biography.address?.postCode ? authContext?.auth.userDetails?.biography.postCode : "Not Available"}</p>
                </div>
-               <div className="data-row">
-                  <h3> Job Role :  {userBigrapghy.jobRole ? userBigrapghy.jobRole : "Not Available"}</h3>
+               <div >
+                  <h3> Job Role  </h3>
+                  <p>{authContext?.auth.userDetails?.biography.jobRole ? authContext?.auth.userDetails?.biography.jobRole : "Not Available"}</p>
                </div>
-               <h2 className='company-details'>Company Details</h2>
+               <h2 >Company Details</h2>
                {
-                  userBigrapghy.company ? <>
-                     <h3>Company Name :  {userBigrapghy.company.name ? userBigrapghy.company.name : "Not Available"}</h3>
-                     <h3>Description : {userBigrapghy.company.description ? userBigrapghy.company.description : "Not Avaialble"}</h3>
-                     {userBigrapghy.company.address ?
+                  authContext?.auth.userDetails?.biography.company ? <>
+                     <h3>Company Name </h3>
+                     <p> {authContext?.auth.userDetails?.biography.company.name ? authContext?.auth.userDetails?.biography.company.name : "Not Available"}</p>
+                     <h3>Description </h3>
+                     <p>{authContext?.auth.userDetails?.biography.company.description ? authContext?.auth.userDetails?.biography.company.description : "Not Avaialble"}</p>
+                     {authContext?.auth.userDetails?.biography.company.address ?
                         <h3>
-                           `${userBigrapghy.company.address.address} ${userBigrapghy.company.address.city} ${userBigrapghy.company.address.country}`
+                           `${authContext?.auth.userDetails?.biography.company.address.address} ${authContext?.auth.userDetails?.biography.company.address.city} ${authContext?.auth.userDetails?.biography.company.address.country}`
                         </h3>
                         : <h3>Not Available</h3>}
                   </> : <h3>Not Available</h3>
