@@ -28,6 +28,7 @@ const BiographySection = () => {
     const authContext = useContext(AuthContext);
 
     return (
+
         <Container>
             {
                 authContext?.auth.userDetails?.biography && <>
@@ -71,6 +72,7 @@ const BiographySection = () => {
                 </>
             }
         </Container>
+
     )
 }
 
