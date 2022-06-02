@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import Modal from 'antd/lib/modal/Modal';
 import React, { useContext, useState } from 'react'
-import { AuthContext } from '../../../../auth/AuthProvider'
+import { AuthContext } from '../../../auth/AuthProvider'
 import { Tabs, Form, Input } from 'antd';
 
 const BioGraphyForm = () => {
