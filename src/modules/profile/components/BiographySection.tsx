@@ -43,7 +43,10 @@ const BiographySection = () => {
                     </DataRow>
                     <DataRow >
                         <DetailsLabel> Address</DetailsLabel>
-                        <DetailsText> {authContext?.auth.userDetails?.biography.address ? `${authContext?.auth.userDetails?.biography.address?.address},\n${authContext?.auth.userDetails?.biography.address?.city},\n${authContext?.auth.userDetails?.biography.address?.country}` : "Not Available"}</DetailsText>
+                        <DetailsText> {authContext?.auth.userDetails?.biography.address ? `${authContext?.auth.userDetails?.biography.address?.address},`  : "Not Available"}</DetailsText>
+                        <DetailsText>{`${authContext?.auth.userDetails?.biography.address?.city},`}</DetailsText>
+                        <DetailsText>{authContext?.auth.userDetails?.biography.address?.country}</DetailsText>
+
                     </DataRow>
                     <DataRow >
                         <DetailsLabel> Postal Code   </DetailsLabel>
@@ -60,11 +63,16 @@ const BiographySection = () => {
                             <DetailsText> {authContext?.auth.userDetails?.biography.company.name ? authContext?.auth.userDetails?.biography.company.name : "Not Available"}</DetailsText>
                             <DetailsLabel>Description </DetailsLabel>
                             <DetailsText>{authContext?.auth.userDetails?.biography.company.description ? authContext?.auth.userDetails?.biography.company.description : "Not Avaialble"}</DetailsText>
-                            {authContext?.auth.userDetails?.biography.company.address ?
-                                <DetailsLabel>
-                                    `${authContext?.auth.userDetails?.biography.company.address.address},\n${authContext?.auth.userDetails?.biography.company.address.city},\n${authContext?.auth.userDetails?.biography.company.address.country}`
+                            <DetailsLabel>
+                                    Address
                                 </DetailsLabel>
-                                : <DetailsText>Not Available</DetailsText>}
+                            {authContext?.auth.userDetails?.biography.company.address ?
+                                    <>
+                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.address},</DetailsText>
+                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.city},</DetailsText>
+                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.country}</DetailsText>
+                                    </>
+                                :   <DetailsText>Not Available</DetailsText>}
                         </> : <DetailsLabel>Not Available</DetailsLabel>
                     }
                     <br/>
