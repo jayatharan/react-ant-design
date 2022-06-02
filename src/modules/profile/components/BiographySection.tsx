@@ -9,8 +9,8 @@ const BiographySection = () => {
     
     return (
         <div>
-            Profile Form
-            Profile Content
+            Biography Form
+            Biography Content
         </div>
     )
 }
