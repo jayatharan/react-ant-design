@@ -28,9 +28,7 @@ const Profile = () => {
             }
             key="1"
           >
-            <BioGraphyForm />
-            {/* <BiographySection /> */}
-            FirstName: {authContext?.auth.userDetails?.biography?.firstName}
+            <BiographySection />
           </TabPane>
           <TabPane
             tab={
