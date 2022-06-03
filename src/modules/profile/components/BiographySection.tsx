@@ -65,6 +65,14 @@ const BiographySection = () => {
                             <Data><p>{authContext?.auth.userDetails?.biography?.firstName}</p></Data>
                         </DataColumn>
                     </DataRow>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Last Name</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.lastName}</p></Data>
+                        </DataColumn>
+                    </DataRow>
 
                     <DataRow>
                         <DataColumn>
