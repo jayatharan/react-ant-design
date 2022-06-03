@@ -1,4 +1,5 @@
 import { Educational } from "../application/models/EducationModels";
+import { Biography } from "../application/models/BiographyModels";
 import {
   CreateUser,
   UpdateUser,
@@ -26,6 +27,10 @@ class UserApi extends BaseApi {
       {},
       data
     );
+  }
+
+  public async updateUserBiographyAsync(data: Biography) {
+    return await this.postAsync<Biography>("users/biography", {}, data);
   }
 }
 

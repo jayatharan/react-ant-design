@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "9117324c-a10d-491e-a49b-64ddaee14fa2",
+		"name": "UPHIRE_PERN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15506082"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Jaya\",\r\n    \"email\":\"jaya1@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"alternativeEmail\":\"test@gmail.com\",\r\n    \"mobileNumber\":\"0777123456\",\r\n    \"role\":\"client\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Jaya\",\r\n    \"email\":\"jaya1@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"alternativeEmail\":\"test1@gmail.com\",\r\n    \"mobileNumber\":\"0777123456\",\r\n    \"role\":\"client\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Biography",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jayatharan\",\r\n    \"lastName\": \"Indran\",\r\n    \"jobRole\": \"Associate Software Engineer\",\r\n    \"addressId\":\"50207b70-e967-4ef1-bbf4-e9b70ac86a6f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users/biography",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"biography"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Subscriptions",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\":\"Team\",\r\n    \"type\":\"Unlimited\",\r\n    \"amount\":1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users/subscriptions",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"indran@uphire.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/sessions",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViZDg2YmNkLTMzNDYtNDMwNy05MmU1LTc2ZDllNzJkODU2YyIsInZhbGlkIjp0cnVlLCJ1c2VySWQiOiI4NzEwY2FhNy1kNTZkLTRmNzUtOGZhZC0zOTU0YjY1ZmExN2MiLCJ1c2VyQWdlbnQiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJ1cGRhdGVkQXQiOiIyMDIyLTA1LTMwVDAyOjI0OjE5LjE5OFoiLCJjcmVhdGVkQXQiOiIyMDIyLTA1LTMwVDAyOjI0OjE5LjE5OFoiLCJpYXQiOjE2NTM4Nzc0NTksImV4cCI6MTY4NTQzNTA1OX0.a5jDKXdSRLO-quErDVqhL4zFp20dSs0p33pPYL7cSsw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/sessions/token",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"sessions",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/sessions",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/address?page=1&limit=1",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"address"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\":\"Test Address\",\r\n    \"city\":\"Vavuniya\",\r\n    \"country\":\"SriLanka\",\r\n    \"postCode\":\"43000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/address",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/address/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"address",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/address/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"address",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/address/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"address",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/company",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/company/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/company",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/company/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server}}/health-check",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0MGZhNDYxLWVmODktNDZlMC04ZDg3LTNmY2U2YTYwM2UwOSIsIm5hbWUiOiJKYXlhdGhhcmFuIiwiZW1haWwiOiJpbmRyYW4xQHVwaGlyZS5jb20iLCJyb2xlIjoiY2xpZW50IiwiZW1haWxWZXJpZmljYXRpb25HdWlkIjoiNzljN2E2OTgtYWE2YS00OTNjLWJlZWMtZjVlN2YyOWVmNTI5IiwiZW1haWxWZXJpZmllZCI6ZmFsc2UsImFsdGVybmF0aXZlRW1haWwiOiJ0ZXN0QHVwaGlyZS5jb20iLCJtb2JpbGVOdW1iZXIiOiIwNzc3MTIzNDU2IiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDYtMDFUMTI6MzQ6MjEuNzYxWiIsInVwZGF0ZWRBdCI6IjIwMjItMDYtMDFUMTI6MzQ6MjEuNzYxWiIsInNlc3Npb24iOiJiYzc2NDRlNi1jYzFmLTQyNDgtOWQ2MC0xNTM0NmE2ZDU5ZGMiLCJpYXQiOjE2NTQwODY4NjksImV4cCI6MTY1NDE3MzI2OX0.fT-745ZA75MI5PyDyn7_AsPXsgI0j9VBYmnHJXulmDc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "128.199.18.121/api",
+			"type": "string"
+		},
+		{
+			"key": "digital-ocean",
+			"value": "68.183.85.171/api/new",
+			"type": "string"
+		},
+		{
+			"key": "local",
+			"value": "localhost:1338",
+			"type": "string"
+		}
+	]
+}

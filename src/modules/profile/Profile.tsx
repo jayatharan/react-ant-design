@@ -10,6 +10,7 @@ import {
 import ProfileSection from "./components/ProfileSection";
 import { AuthContext } from "../../auth/AuthProvider";
 import EducationForm from "./components/EducationForm";
+import BiographyForm from "./components/BiographyForm";
 
 const { TabPane } = Tabs;
 
@@ -32,7 +33,7 @@ const Profile = () => {
             }
             key="1"
           >
-            FirstName: {authContext?.auth.userDetails?.biography?.firstName}
+            <BiographyForm />
           </TabPane>
           <TabPane
             tab={
