@@ -45,6 +45,7 @@ h4 {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    padding-top: 20px;
 }
 
 @media (min-width: 1200px) {
@@ -67,6 +68,6 @@ h4 {
 
 @media (min-width: 576px) {
     .container {
-        max-width: 540px;
+        max-width: 1140px;
     }
 }

@@ -1,28 +1,49 @@
-import { Button } from 'antd';
-import Modal from 'antd/lib/modal/Modal';
-import React, { useContext, useState } from 'react'
+import { Button, Divider } from 'antd';
+
+import React, { useContext } from 'react'
 import { AuthContext } from '../../../auth/AuthProvider'
-import { Tabs, Form, Input } from 'antd';
+
 import styled from 'styled-components';
-import { Paragraph, Text } from '../../../shared/Typograpgy';
 
 
 
-const Container = styled.div``
 
-const DataRow = styled.div``
-
-const DetailsLabel = styled(Text)`
-    font-weight : bold;
-`
-
-const DetailsText = styled(Paragraph)``
-
-const SubTitle = styled.h2`
-    
-
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    width : 60%;
 
 `
+
+const Subtitle = styled.div`
+    font-weight:bold;
+    font-size : 0.8rem;
+`
+
+
+const DataRow = styled.div`
+    display : flex;
+    flex-direction: row;
+`
+
+const DataColumn = styled.div`
+    flex : 1;
+`
+
+const Data = styled.span`
+    color : #85837e;
+    p{
+        color : #1f2324;
+        font-weight: bold;
+        letter-spacing : 0.2px;
+    }
+`
+
+const Devider = styled(Divider)`
+    margin : 10px 0px;
+    background-color: #008686;
+`
+
 
 const BiographySection = () => {
     const authContext = useContext(AuthContext);
@@ -32,50 +53,99 @@ const BiographySection = () => {
         <Container >
             {
                 authContext?.auth.userDetails?.biography && <>
-                    <SubTitle>Personal Details</SubTitle>
+                    <Subtitle>
+                        Personal Details
+                    </Subtitle>
+                    <Devider />
                     <DataRow>
-                        <DetailsLabel>First Name </DetailsLabel>
-                        <DetailsText>{authContext?.auth.userDetails?.biography.firstName}</DetailsText>
+                        <DataColumn>
+                            <Data>First Name</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.firstName}</p></Data>
+                        </DataColumn>
                     </DataRow>
-                    <DataRow >
-                        <DetailsLabel>Last Name</DetailsLabel>
-                        <DetailsText>{authContext?.auth.userDetails?.biography.lastName}</DetailsText>
-                    </DataRow>
-                    <DataRow >
-                        <DetailsLabel> Address</DetailsLabel>
-                        <DetailsText> {authContext?.auth.userDetails?.biography.address ? `${authContext?.auth.userDetails?.biography.address?.address},`  : "Not Available"}</DetailsText>
-                        <DetailsText>{`${authContext?.auth.userDetails?.biography.address?.city},`}</DetailsText>
-                        <DetailsText>{authContext?.auth.userDetails?.biography.address?.country}</DetailsText>
 
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Job Role</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.jobRole}</p></Data>
+                        </DataColumn>
                     </DataRow>
-                    <DataRow >
-                        <DetailsLabel> Postal Code   </DetailsLabel>
-                        <DetailsText>{authContext?.auth.userDetails?.biography.address?.postCode ? authContext?.auth.userDetails?.biography.postCode : "Not Available"}</DetailsText>
+                    <Subtitle>
+                        Contact Information
+                    </Subtitle>
+                    <Devider />
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Address</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.address?.address}</p></Data>
+                        </DataColumn>
                     </DataRow>
-                    <DataRow >
-                        <DetailsLabel> Job Role  </DetailsLabel>
-                        <DetailsText>{authContext?.auth.userDetails?.biography.jobRole ? authContext?.auth.userDetails?.biography.jobRole : "Not Available"}</DetailsText>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>City</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.address?.city}</p></Data>
+                        </DataColumn>
                     </DataRow>
-                    <SubTitle >Company Details</SubTitle>
-                    {
-                        authContext?.auth.userDetails?.biography.company ? <>
-                            <DetailsLabel>Company Name </DetailsLabel>
-                            <DetailsText> {authContext?.auth.userDetails?.biography.company.name ? authContext?.auth.userDetails?.biography.company.name : "Not Available"}</DetailsText>
-                            <DetailsLabel>Description </DetailsLabel>
-                            <DetailsText>{authContext?.auth.userDetails?.biography.company.description ? authContext?.auth.userDetails?.biography.company.description : "Not Avaialble"}</DetailsText>
-                            <DetailsLabel>
-                                    Address
-                                </DetailsLabel>
-                            {authContext?.auth.userDetails?.biography.company.address ?
-                                    <>
-                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.address},</DetailsText>
-                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.city},</DetailsText>
-                                         <DetailsText>{authContext?.auth.userDetails?.biography.company.address.country}</DetailsText>
-                                    </>
-                                :   <DetailsText>Not Available</DetailsText>}
-                        </> : <DetailsLabel>Not Available</DetailsLabel>
-                    }
-                    <br/>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Postal Code</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.address?.postCode}</p></Data>
+                        </DataColumn>
+                    </DataRow>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Country</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.address?.country}</p></Data>
+                        </DataColumn>
+                    </DataRow>
+                    <Subtitle>
+                        Company Information
+                    </Subtitle>
+                    <Devider />
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Name</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.company?.name}</p></Data>
+                        </DataColumn>
+                    </DataRow>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>About</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.company?.description}</p></Data>
+                        </DataColumn>
+                    </DataRow>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Address</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.company?.address?.address}</p></Data>
+                        </DataColumn>
+                    </DataRow>
+                    <DataRow>
+                        <DataColumn>
+                            <Data>Location</Data>
+                        </DataColumn>
+                        <DataColumn>
+                            <Data><p>{authContext?.auth.userDetails?.biography?.company?.address?.city},{authContext?.auth.userDetails?.biography?.company?.address?.country}</p></Data>
+                        </DataColumn>
+                    </DataRow>
                     <Button type="primary">Update Personal Data</Button>
                 </>
             }
