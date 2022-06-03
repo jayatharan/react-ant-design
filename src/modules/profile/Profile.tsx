@@ -9,6 +9,7 @@ import {
 } from "@ant-design/icons";
 import ProfileSection from "./components/ProfileSection";
 import { AuthContext } from "../../auth/AuthProvider";
+import EducationForm from "./components/EducationForm";
 import BiographyForm from "./components/BiographyForm";
 
 const { TabPane } = Tabs;
@@ -54,7 +55,7 @@ const Profile = () => {
             }
             key="3"
           >
-            Tab 2
+            <EducationForm />
           </TabPane>
           <TabPane
             tab={
