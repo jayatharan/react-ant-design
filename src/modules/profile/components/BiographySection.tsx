@@ -76,16 +76,16 @@ const BiographySection = () => {
                 <BiographyForm onSave={handleBiographySave} onClose={handleBiographyClose} />
             </Modal>
             <Spin spinning={authContext?.auth.loading}>
-                <Space style={{ display: "flex", justifyContent: "space-between", maxWidth:'750px' }}>
+                <Space style={{ display: "flex", justifyContent: "space-between"}}>
                     <Title level={4} style={{ marginBottom: '20px' }}>
                         Biography
                     </Title>
-                    <Button type="primary" shape="round" icon={<EditOutlined  />}  onClick={() => setOpenEditBiography(true)}>
+                    <Button type="primary" shape="round" icon={<EditOutlined  />}  onClick={() => setOpenEditBiography(true)} style={{marginRight:'20px'}}>
                         Edit
                     </Button>
                 </Space>
                 <Row>
-                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Col xs={24} sm={24} md={8} lg={8} xl={8}>
                         <Space direction="vertical" size='small'>
                             <BiographyHeading >
                                 Basic Details <UserOutlined />
@@ -145,7 +145,7 @@ const BiographySection = () => {
                             </BiographyNestedContainer>
                         </Space>
                     </Col>
-                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Col xs={24} sm={24} md={16} lg={16} xl={16}>
                         <Space direction="vertical" size='small'>
                             <BiographyHeading >
                                 Occupational Details <FileProtectOutlined />
@@ -176,7 +176,7 @@ const BiographySection = () => {
                                         <BiographyLable>
                                             Company Description
                                         </BiographyLable>
-                                        <BiographyValue>
+                                        <BiographyValue style={{maxWidth:'400px'}}>
                                             {authContext?.auth.userDetails?.biography?.company?.description}
                                         </BiographyValue>
                                     </BiographyVerticalContainer>
@@ -188,7 +188,7 @@ const BiographySection = () => {
                                             <BiographyLable>
                                                 Address
                                             </BiographyLable>
-                                            <BiographyValue>
+                                            <BiographyValue style={{maxWidth:'380px'}}>
                                                 {authContext?.auth.userDetails?.biography?.address?.address}
                                             </BiographyValue>
                                         </BiographyVerticalContainer>

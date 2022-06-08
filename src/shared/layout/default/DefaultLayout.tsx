@@ -12,6 +12,7 @@ interface DefaultLayoutProps {
 
 const Body = styled(Content)`
   min-height: 90vh;
+  padding-bottom: 20px;
 `;
 
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {

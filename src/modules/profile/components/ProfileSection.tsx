@@ -60,7 +60,7 @@ const ProfileSection = () => {
                         PROFILE <EditOutlined onClick={() => setOpenEditProfile(true)} />
                     </Title>
                     <Space direction="vertical" size='middle'>
-                        <div style={{ textAlign: 'center' }}>
+                        <div style={{ textAlign: 'left' }}>
                             <Avatar
                                 shape="square" 
                                 size={170}
