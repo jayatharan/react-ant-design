@@ -16,10 +16,13 @@ const ProfileLable = styled(Text).attrs({
     strong: true
 })`
     font-size:1.1rem;
-    text-align: center;
+    text-align: left;
+    color: 	#808080;
 `
 const ProfileValue = styled(Text)`
-    text-align: center;
+    font-size:1.01rem;
+    text-align: left;
+    font-weight:700
 `
 const ProfileContainer = styled.div`
     display:flex;
@@ -52,14 +55,15 @@ const ProfileSection = () => {
                 <ProfileForm onSave={handleProfileSave} onClose={handleProfileClose} />
             </Modal>
             <Spin spinning={authContext?.auth.loading}>
-                <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop:'10px' }}>
                     <Title level={3} style={{ marginBottom: '20px' }}>
                         PROFILE <EditOutlined onClick={() => setOpenEditProfile(true)} />
                     </Title>
                     <Space direction="vertical" size='middle'>
                         <div style={{ textAlign: 'center' }}>
                             <Avatar
-                                size={100}
+                                shape="square" 
+                                size={170}
                                 icon={authContext?.auth.userDetails?.user?.image ? (
                                     <img src={`${getImagePath(authContext?.auth.userDetails?.user?.image)}`} />
                                 ) : (

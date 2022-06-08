@@ -8,9 +8,9 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import ProfileSection from "./components/ProfileSection";
+import BiographySection from "./components/BiographySection";
 import { AuthContext } from "../../auth/AuthProvider";
 import EducationForm from "./components/EducationForm";
-import BiographyForm from "./components/BiographyForm";
 
 const { TabPane } = Tabs;
 
@@ -33,7 +33,7 @@ const Profile = () => {
             }
             key="1"
           >
-            <BiographyForm />
+            <BiographySection />
           </TabPane>
           <TabPane
             tab={

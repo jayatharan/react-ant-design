@@ -15,7 +15,7 @@ const biographyFormModel = {
     },
     company: {
       name: "company",
-      label: "Company",
+      label: "Current Company",
       initialValue: {
         id: "",
         name: "",
@@ -38,7 +38,7 @@ const biographyFormModel = {
     },
     address: {
       name: "address",
-      label: "Address",
+      label: "Current Address",
       initialValue: {
         id: "",
         address: "",
