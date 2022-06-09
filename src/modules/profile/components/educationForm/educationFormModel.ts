@@ -9,7 +9,7 @@ const educationFormModel = {
     },
     type: {
       name: "type",
-      label: "Type",
+      label: "Course Type",
       initialValue: "",
       requiredErrorMsg: "Type is required.",
     },
@@ -21,32 +21,32 @@ const educationFormModel = {
     },
     description: {
       name: "description",
-      label: "Description",
+      label: "Course Description",
       initialValue: "",
       requiredErrorMsg: "Description is required.",
     },
     startDate: {
       name: "startDate",
-      label: "Start Date",
+      label: "Started Date",
       initialValue: "",
       requiredErrorMsg: "Start Date is required.",
     },
     endDate: {
       name: "endDate",
-      label: "End Date",
+      label: "Completed Date",
       initialValue: "",
       requiredErrorMsg: "End Date is required.",
     },
 
     image: {
       name: "image",
-      label: "Image",
+      label: "Certificate Image",
       initialValue: "",
       requiredErrorMsg: "Image is required.",
     },
     address: {
       name: "address",
-      label: "Address",
+      label: "Organization Address",
       initialValue: {
         id: "",
         address: "",

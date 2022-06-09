@@ -29,6 +29,10 @@ class UserApi extends BaseApi {
     );
   }
 
+  public async getUserEducationDetail(){
+    return await this.getAsync<Educational[]>("users/educational-detail");
+  }
+
   public async updateUserBiographyAsync(data: Biography) {
     return await this.postAsync<Biography>("users/biography", {}, data);
   }

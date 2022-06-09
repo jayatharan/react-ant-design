@@ -11,6 +11,7 @@ import ProfileSection from "./components/ProfileSection";
 import BiographySection from "./components/BiographySection";
 import { AuthContext } from "../../auth/AuthProvider";
 import EducationForm from "./components/EducationForm";
+import EducationSection from "./components/EducationSection";
 
 const { TabPane } = Tabs;
 
@@ -19,10 +20,10 @@ const Profile = () => {
 
   return (
     <Row style={{ maxWidth: "1400px", marginInline: "auto" }}>
-      <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+      <Col xs={24} sm={24} md={6} lg={6} xl={6}>
         <ProfileSection />
       </Col>
-      <Col xs={24} sm={24} md={16} lg={16} xl={16}>
+      <Col xs={24} sm={24} md={18} lg={18} xl={18}>
         <Tabs>
           <TabPane
             tab={
@@ -55,7 +56,8 @@ const Profile = () => {
             }
             key="3"
           >
-            <EducationForm />
+            <EducationSection />
+            {/* <EducationForm /> */}
           </TabPane>
           <TabPane
             tab={

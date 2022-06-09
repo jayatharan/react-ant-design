@@ -25,11 +25,6 @@ const BiographySection = () => {
         setOpenEditBiography(false);
     }
 
-    useEffect(() => {
-        console.log(authContext?.auth.userDetails?.biography);
-    }, [authContext])
-    
-
     const BiographyHeading = styled(Text).attrs({
         strong: true
     })`
@@ -44,6 +39,7 @@ const BiographySection = () => {
         font-size:1rem;
         text-align: left;
         margin-right:10px;
+        color: 	#707070;
     `
     const BiographyValue = styled(Text)`
         font-size:1rem;
@@ -63,7 +59,13 @@ const BiographySection = () => {
         display:flex;
         flex-direction:column;
     `
-    
+    const BiographySectionContainer = styled.div`
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        padding:10px;
+        margin-inline:5px;
+        height:100%;
+    `
+
     return (
         <>
             <Modal
@@ -76,8 +78,8 @@ const BiographySection = () => {
                 <BiographyForm onSave={handleBiographySave} onClose={handleBiographyClose} />
             </Modal>
             <Spin spinning={authContext?.auth.loading}>
-                <Space style={{ display: "flex", justifyContent: "space-between"}}>
-                    <Title level={4} style={{ marginBottom: '20px' }}>
+                <Space style={{ display: "flex", justifyContent: "space-between", alignItems:'center', marginBottom:"20px"}}>
+                    <Title level={4}>
                         Biography
                     </Title>
                     <Button type="primary" shape="round" icon={<EditOutlined  />}  onClick={() => setOpenEditBiography(true)} style={{marginRight:'20px'}}>
@@ -86,9 +88,10 @@ const BiographySection = () => {
                 </Space>
                 <Row>
                     <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <BiographySectionContainer>
                         <Space direction="vertical" size='small'>
                             <BiographyHeading >
-                                Basic Details <UserOutlined />
+                                <UserOutlined /> Basic Details 
                             </BiographyHeading>
                             <BiographyContainer>
                                 <BiographyLable>
@@ -144,82 +147,84 @@ const BiographySection = () => {
                                 </BiographyVerticalContainer>
                             </BiographyNestedContainer>
                         </Space>
+                    </BiographySectionContainer>
                     </Col>
                     <Col xs={24} sm={24} md={16} lg={16} xl={16}>
-                        <Space direction="vertical" size='small'>
-                            <BiographyHeading >
-                                Occupational Details <FileProtectOutlined />
-                            </BiographyHeading>
-                            <BiographyContainer>
-                                <BiographyLable>
-                                    Current Job Role
-                                </BiographyLable>
-                                <BiographyValue>
-                                    {authContext?.auth.userDetails?.biography?.jobRole}
-                                </BiographyValue>
-                            </BiographyContainer>
-                            <BiographyLable>
-                                Current Company
-                            </BiographyLable>
-                            <BiographyNestedContainer>
-                                <Space direction="vertical" size='small'>
-
-                                    <BiographyContainer>
-                                        <BiographyLable>
-                                            Company Name
-                                        </BiographyLable>
-                                        <BiographyValue>
-                                            {authContext?.auth.userDetails?.biography?.company?.name}
-                                        </BiographyValue>
-                                    </BiographyContainer>
-                                    <BiographyVerticalContainer>
-                                        <BiographyLable>
-                                            Company Description
-                                        </BiographyLable>
-                                        <BiographyValue style={{maxWidth:'400px'}}>
-                                            {authContext?.auth.userDetails?.biography?.company?.description}
-                                        </BiographyValue>
-                                    </BiographyVerticalContainer>
+                        <BiographySectionContainer >
+                            <Space direction="vertical" size='small'>
+                                <BiographyHeading >
+                                    <FileProtectOutlined /> Occupational Details
+                                </BiographyHeading>
+                                <BiographyContainer>
                                     <BiographyLable>
-                                        Company Address
+                                        Current Job Role
                                     </BiographyLable>
-                                    <BiographyNestedContainer>
-                                        <BiographyVerticalContainer>
+                                    <BiographyValue>
+                                        {authContext?.auth.userDetails?.biography?.jobRole}
+                                    </BiographyValue>
+                                </BiographyContainer>
+                                <BiographyLable>
+                                    Current Company
+                                </BiographyLable>
+                                <BiographyNestedContainer>
+                                    <Space direction="vertical" size='small'>
+                                        <BiographyContainer>
                                             <BiographyLable>
-                                                Address
-                                            </BiographyLable>
-                                            <BiographyValue style={{maxWidth:'380px'}}>
-                                                {authContext?.auth.userDetails?.biography?.address?.address}
-                                            </BiographyValue>
-                                        </BiographyVerticalContainer>
-                                        <BiographyVerticalContainer>
-                                            <BiographyLable>
-                                                City
-                                            </BiographyLable>
-                                            <BiographyValue>
-                                                {authContext?.auth.userDetails?.biography?.address?.city}
-                                            </BiographyValue>
-                                        </BiographyVerticalContainer>
-                                        <BiographyVerticalContainer>
-                                            <BiographyLable>
-                                                Country
+                                                Company Name
                                             </BiographyLable>
                                             <BiographyValue>
-                                                {authContext?.auth.userDetails?.biography?.address?.country}
+                                                {authContext?.auth.userDetails?.biography?.company?.name}
                                             </BiographyValue>
-                                        </BiographyVerticalContainer>
+                                        </BiographyContainer>
                                         <BiographyVerticalContainer>
                                             <BiographyLable>
-                                                post Code
+                                                Company Description
                                             </BiographyLable>
-                                            <BiographyValue>
-                                                {authContext?.auth.userDetails?.biography?.address?.postCode}
+                                            <BiographyValue style={{maxWidth:'400px'}}>
+                                                {authContext?.auth.userDetails?.biography?.company?.description}
                                             </BiographyValue>
                                         </BiographyVerticalContainer>
-                                    </BiographyNestedContainer>
-                                </Space>
-                            </BiographyNestedContainer>
-                        </Space>    
+                                        <BiographyLable>
+                                            Company Address
+                                        </BiographyLable>
+                                        <BiographyNestedContainer>
+                                            <BiographyVerticalContainer>
+                                                <BiographyLable>
+                                                    Address
+                                                </BiographyLable>
+                                                <BiographyValue style={{maxWidth:'380px'}}>
+                                                    {authContext?.auth.userDetails?.biography?.address?.address}
+                                                </BiographyValue>
+                                            </BiographyVerticalContainer>
+                                            <BiographyVerticalContainer>
+                                                <BiographyLable>
+                                                    City
+                                                </BiographyLable>
+                                                <BiographyValue>
+                                                    {authContext?.auth.userDetails?.biography?.address?.city}
+                                                </BiographyValue>
+                                            </BiographyVerticalContainer>
+                                            <BiographyVerticalContainer>
+                                                <BiographyLable>
+                                                    Country
+                                                </BiographyLable>
+                                                <BiographyValue>
+                                                    {authContext?.auth.userDetails?.biography?.address?.country}
+                                                </BiographyValue>
+                                            </BiographyVerticalContainer>
+                                            <BiographyVerticalContainer>
+                                                <BiographyLable>
+                                                    post Code
+                                                </BiographyLable>
+                                                <BiographyValue>
+                                                    {authContext?.auth.userDetails?.biography?.address?.postCode}
+                                                </BiographyValue>
+                                            </BiographyVerticalContainer>
+                                        </BiographyNestedContainer>
+                                    </Space>
+                                </BiographyNestedContainer>
+                            </Space>    
+                        </BiographySectionContainer>
                     </Col>
                 </Row>
             </Spin>
